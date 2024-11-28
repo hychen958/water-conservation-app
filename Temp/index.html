@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + Express</title>
+    <title>Water Trekkie</title>
+    <link rel="stylesheet" href="/my-frontend/src/style.css">
+</head>
+<body>
+    <div id="Water Conservation Tracker App">
+        <h1>User Management</h1>
+        <form id="userForm">
+            <input type="text" id="name" placeholder="Name" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="number" id="age" placeholder="Age" required />
+            <button type="submit">Add User</button>
+        </form>
+        <h2>Users</h2>
+        <ul id="userList"></ul>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+//Home Setup Page where the user creates their username, password and login information.//
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .toggle-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .toggle-links a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .toggle-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Login Form -->
+    <div id="loginForm">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="toggle-links">
+            <a href="#" onclick="toggleForms('signup')">Sign Up</a>
+            <a href="#" onclick="toggleForms('createCharacter')">Create Your Character</a>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signupForm" style="display:none;">
+        <h2>Sign Up</h2>
+        <form action="#" method="POST">
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required placeholder="Choose a username">
+
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required placeholder="Create a password">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="toggle-links">
+            <a href="#" onclick="toggleForms('login')">Back to Login</a>
+            <a href="#" onclick="toggleForms('createCharacter')">Create Your Character</a>
+        </div>
+    </div>
+
+    <!-- Create Your Character Form -->
+    <div id="createCharacterForm" style="display:none;">
+        <h2>Create Your Character</h2>
+        <form action="#" method="POST">
+            <label for="characterName">Character Name:</label>
+            <input type="text" id="characterName" name="characterName" required placeholder="Enter character name">
+            
+            <label for="characterClass">Character Class:</label>
+            <input type="text" id="characterClass" name="characterClass" required placeholder="Enter character class">
+            
+            <label for="characterRace">Character Race:</label>
+            <input type="text" id="characterRace" name="characterRace" required placeholder="Enter character race">
+            
+            <button type="submit">Create Character</button>
+        </form>
+
+        <div class="toggle-links">
+            <a href="#" onclick="toggleForms('login')">Back to Login</a>
+            <a href="#" onclick="toggleForms('signup')">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleForms(formType) {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('createCharacterForm').style.display = 'none';
+        
+        if (formType === 'login') {
+            document.getElementById('loginForm').style.display = 'block';
+        } else if (formType === 'signup') {
+            document.getElementById('signupForm').style.display = 'block';
+        } else if (formType === 'createCharacter') {
+            document.getElementById('createCharacterForm').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
+//To create a simple HTML login page with fields for a username, password, email, and buttons for "Login", "Sign Up", and "Create Your Character", you can use HTML forms and buttons. Below is a basic example that includes the structure and necessary elements for the login and sign-up functionality:
+
+### HTML Code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .toggle-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .toggle-links a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .toggle-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Login Form -->
+    <div id="loginForm">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="toggle-links">
+            <a href="#" onclick="toggleForms('signup')">Sign Up</a>
+            <a href="#" onclick="toggleForms('createCharacter')">Create Your Character</a>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signupForm" style="display:none;">
+        <h2>Sign Up</h2>
+        <form action="#" method="POST">
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required placeholder="Choose a username">
+
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required placeholder="Create a password">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="toggle-links">
+            <a href="#" onclick="toggleForms('login')">Back to Login</a>
+            <a href="#" onclick="toggleForms('createCharacter')">Create Your Character</a>
+        </div>
+    </div>
+
+    <!-- Create Your Character Form -->
+    <div id="createCharacterForm" style="display:none;">
+        <h2>Create Your Character</h2>
+        <form action="#" method="POST">
+            <label for="characterName">Character Name:</label>
+            <input type="text" id="characterName" name="characterName" required placeholder="Enter character name">
+            
+            <label for="characterClass">Character Class:</label>
+            <input type="text" id="characterClass" name="characterClass" required placeholder="Enter character class">
+            
+            <label for="characterRace">Character Race:</label>
+            <input type="text" id="characterRace" name="characterRace" required placeholder="Enter character race">
+            
+            <button type="submit">Create Character</button>
+        </form>
+
+        <div class="toggle-links">
+            <a href="#" onclick="toggleForms('login')">Back to Login</a>
+            <a href="#" onclick="toggleForms('signup')">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleForms(formType) {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('createCharacterForm').style.display = 'none';
+        
+        if (formType === 'login') {
+            document.getElementById('loginForm').style.display = 'block';
+        } else if (formType === 'signup') {
+            document.getElementById('signupForm').style.display = 'block';
+        } else if (formType === 'createCharacter') {
+            document.getElementById('createCharacterForm').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
+```
+
+//### Explanation:
+- **Login Form**: This is the default view. It includes fields for the username and password, as well as a "Login" button. Below it, there are links to toggle between the "Sign Up" form and the "Create Your Character" form.
+  
+- **Sign Up Form**: This form includes fields for a new username, password, and email. It also includes a "Sign Up" button and links to return to the login page or go to the character creation page.
+
+- **Create Your Character Form**: This form includes fields for creating a character, such as the character's name, class, and race, along with a "Create Character" button. Links are available to go back to login or sign up.
+
+- **JavaScript (toggleForms)**: The function `toggleForms` controls which form is visible by hiding all forms and showing the one based on the passed `formType` argument (either `login`, `signup`, or `createCharacter`).
+
+### How it works:
+- Initially, only the login form is visible.
+- When you click on "Sign Up", it switches to the sign-up form.
+- When you click on "Create Your Character", it switches to the character creation form.
+- You can always go back to the login or sign-up form using the navigation links in each section.
+
+You can expand and customize this code further to include back-end functionality, validations, and more complex features depending on your needs.//
+
+// To create an interactive daily water consumption input form in HTML, you can use a combination of <form>, <input>, <textarea>, <label>, and <select> elements. You can also add some JavaScript for user input validation or calculations if needed, though for this example we'll stick with the basic HTML form structure.
+
+    Here’s a sample HTML code to collect the input for the various questions related to daily water consumption://
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Water Consumption Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Daily Water Consumption Input Form</h1>
+
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label for="lowFlowToiletFlushes">How many times a low-flow toilet flush is used?</label>
+            <input type="number" id="lowFlowToiletFlushes" name="lowFlowToiletFlushes" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nonLowFlowToiletFlushes">How many times a non-low flow toilet flush is used?</label>
+            <input type="number" id="nonLowFlowToiletFlushes" name="nonLowFlowToiletFlushes" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dishwasherUsage">How many times a dishwasher is used?</label>
+            <input type="number" id="dishwasherUsage" name="dishwasherUsage" required>
+        </div>
+
+        <div class="form-group">
+            <label for="regularShowerTime">How long was the shower taken using a regular showerhead? (in minutes)</label>
+            <input type="number" id="regularShowerTime" name="regularShowerTime" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lowFlowShowerTime">How long was the shower taken using a low-flow showerhead? (in minutes)</label>
+            <input type="number" id="lowFlowShowerTime" name="lowFlowShowerTime" required>
+        </div>
+
+        <div class="form-group">
+            <label for="bathtubShower">Did you take a shower using a bathtub?</label>
+            <select id="bathtubShower" name="bathtubShower" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dishwasherLoads">How many dishwasher loads did you use today?</label>
+            <input type="number" id="dishwasherLoads" name="dishwasherLoads" required>
+        </div>
+
+        <div class="form-group">
+            <label for="frontLoadLaundry">How many loads did you use today for laundry using a front-load washing machine?</label>
+            <input type="number" id="frontLoadLaundry" name="frontLoadLaundry" required>
+        </div>
+
+        <div class="form-group">
+            <label for="topLoadLaundry">How many loads did you use today for laundry using a top-loading washing machine?</label>
+            <input type="number" id="topLoadLaundry" name="topLoadLaundry" required>
+        </div>
+
+        <div class="form-group">
+            <label for="waterLawn">Did you water the lawn today (for summer only)?</label>
+            <select id="waterLawn" name="waterLawn" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
+<!-- // Key Points:
+Input Fields: We used <input type="number"> for numeric inputs, ensuring that the user provides only numbers.
+Select Dropdowns: For yes/no questions, we used <select> with <option> elements to provide users with a dropdown.
+Form Structure: The form is wrapped in a <form> tag, which allows for submission. Each input field is placed in a div with the class form-group for styling.
+Submit Button: The Submit button is designed with a clear call-to-action, and when clicked, the form will be submitted (although it’s currently just a placeholder with # as the action attribute, which you can replace with an actual URL to handle form submissions).
+Notes for Enhancement:
+Validation: Basic HTML validation (required) ensures the user can't submit the form without filling it out. You can also use JavaScript for additional validation or to process the data on the client side.
+Styling: The styling is kept simple but can be extended to create a more professional appearance, such as using CSS frameworks like Bootstrap or custom styles.
+Backend Handling: For actual use, you'd need to implement backend processing in a language like PHP, Python (Flask/Django), or Node.js to handle form submissions and data storage.// -->
+
+
+
+

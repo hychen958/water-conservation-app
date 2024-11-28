@@ -1,0 +1,135 @@
+<!-- this will be the page where you will setup your character, and choose your starting options. There needs to be a window that shows what the
+ character looks like
+  after finishing, there will be a "complete" button to send you to the mainGame screen -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Setup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        .avatar-preview img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        .selection-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+        .selection-group label {
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .options input[type="radio"] {
+            margin-right: 5px;
+        }
+        .confirm-button {
+            padding: 10px 20px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+    <script>
+        function updateAvatar() {
+            const sex = document.querySelector('input[name="sex"]:checked').value;
+            const race = document.querySelector('input[name="race"]:checked').value;
+            const htype = document.querySelector('input[name="htype"]:checked').value;
+            const hcolor = document.querySelector('input[name="hcolor"]:checked').value;
+            
+            const avatarImg = document.getElementById("avatar_img");
+            avatarImg.src = `https://avatar1.gamer.com.tw/savatar.php?sex=${sex}&race=${race}&htype=${htype}&hcolor=${hcolor}`;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Create Your Character</h1>
+    <div class="container">
+        
+        <!-- Preview -->
+        <div class="avatar-preview">
+            <img src="https://avatar1.gamer.com.tw/savatar.php?sex=1&race=1&htype=1&hcolor=1" id="avatar_img" alt="character preview">
+        </div>
+
+        <!-- Gender -->
+        <div class="selection-group">
+            <label>1. Gender：</label>
+            <div class="options">
+                <label><input type="radio" name="sex" value="1" checked onchange="updateAvatar()"> Male</label>
+                <label><input type="radio" name="sex" value="2" onchange="updateAvatar()"> Female</label>
+            </div>
+        </div>
+
+        <!-- Race -->
+        <div class="selection-group">
+            <label>2. Race：</label>
+            <div class="options">
+                <label><input type="radio" name="race" value="1" checked onchange="updateAvatar()"> Human</label>
+                <label><input type="radio" name="race" value="2" onchange="updateAvatar()"> Elf</label>
+                <label><input type="radio" name="race" value="3" onchange="updateAvatar()"> Dwarf</label>
+                <label><input type="radio" name="race" value="4" onchange="updateAvatar()"> Orc</label>
+            </div>
+        </div>
+
+        <!-- hairstyle -->
+        <div class="selection-group">
+            <label>3. Hairstyle：</label>
+            <div class="options">
+                <label><input type="radio" name="htype" value="1" checked onchange="updateAvatar()"> A</label>
+                <label><input type="radio" name="htype" value="2" onchange="updateAvatar()"> B</label>
+                <label><input type="radio" name="htype" value="3" onchange="updateAvatar()"> C</label>
+                <label><input type="radio" name="htype" value="4" onchange="updateAvatar()"> D</label>
+            </div>
+        </div>
+
+        <!-- hair color -->
+        <div class="selection-group">
+            <label>4. Hair Color：</label>
+            <div class="options">
+                <label><input type="radio" name="hcolor" value="1" checked onchange="updateAvatar()"> Original</label>
+                <label><input type="radio" name="hcolor" value="2" onchange="updateAvatar()"> Blue</label>
+                <label><input type="radio" name="hcolor" value="3" onchange="updateAvatar()"> Red</label>
+                <label><input type="radio" name="hcolor" value="4" onchange="updateAvatar()"> Yellow</label>
+                <label><input type="radio" name="hcolor" value="5" onchange="updateAvatar()"> Black</label>
+            </div>
+        </div>
+
+        <!-- confirmation -->
+        <button class="confirm-button" onclick="updateAvatar()">Confirm</button>
+    </div>
+</body>
+</html>

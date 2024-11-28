@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Saving Game - Help Screen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        h1 {
+            color: #2b7a78;
+        }
+        .instructions {
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2b7a78;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .next-btn {
+            background-color: #2b7a78;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .next-btn:hover {
+            background-color: #3aafa9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Water Saving Game - Help Screen</h1>
+    
+    <p class="instructions">
+        In this game, your goal is to reduce your water consumption and save as much water as possible. 
+        Each water-related activity uses a certain amount of water. Try to minimize your water use by making smart choices.
+    </p>
+
+    <h2>Daily Water Consumption Per Capita = 261 Liters</h2>
+
+    <table>
+        <tr>
+            <th>Water Use Behavior</th>
+            <th>Water Consumption (Liters)</th>
+        </tr>
+        <tr>
+            <td>Tap (washing hands, face etc. per min)</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>Low flow toilet (per flush)</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>Non-low flow toilet (per flush)</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Low flow showerheads (per 5 minutes)</td>
+            <td>40</td>
+        </tr>
+        <tr>
+            <td>Regular showerheads (per 5 minutes)</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>Typical bathtub (per use)</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Dishwasher (per load)</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>Front load washing machine(per use)</td>
+            <td>65</td>
+        </tr>
+        <tr>
+            <td>Top load washing machine(per use)</td>
+            <td>180</td>
+        </tr>
+        <tr>
+            <td>Watering the lawn (summer only)</td>
+            <td>950</td>
+        </tr>
+    </table>
+
+    <div class="button-container">
+        <button class="next-btn" onclick="nextPage()">Next Page</button>
+    </div>
+
+    <script>
+        function nextPage() {
+            // Logic for navigating to the next page
+            alert('Navigating to the next page...');
+        }
+    </script>
+
+</body>
+</html>

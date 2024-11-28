@@ -1,0 +1,319 @@
+.login-screen,
+
+.register-screen {
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+height: 100vh;
+
+background: url('/game/watertrekkieshomescreenplaceholder.png') no-repeat center center fixed;
+
+background-size: cover;
+
+padding: 20px;
+
+}
+
+‎
+
+/* Container for login and register forms */
+
+.form-container {
+
+background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+
+padding: 40px;
+
+border-radius: 15px;
+
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+
+max-width: 400px;
+
+width: 100%;
+
+text-align: center;
+
+}
+
+‎
+
+/* Input fields */
+
+input {
+
+width: 100%;
+
+padding: 10px;
+
+margin: 10px 0;
+
+border: 1px solid #ccc;
+
+border-radius: 5px;
+
+font-size: 16px;
+
+}
+
+‎
+
+/* Submit button */
+
+button.submit-btn {
+
+background-color: #4ab5e8;
+
+color: white;
+
+border: none;
+
+border-radius: 5px;
+
+padding: 12px 20px;
+
+font-size: 1rem;
+
+cursor: pointer;
+
+transition: all 0.3s ease;
+
+}
+
+‎
+
+button.submit-btn:hover {
+
+background-color: #37a7d6;
+
+box-shadow: 0px 0px 10px rgba(0, 188, 235, 0.7);
+
+}
+
+‎
+
+/* Title for login and register */
+
+.title {
+
+font-size: 2rem;
+
+color: #0468a3;
+
+margin-bottom: 20px;
+
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+font-family: 'Comic Sans MS', cursive, sans-serif;
+
+}
+
+‎
+
+#root {
+
+max-width: 1280px;
+
+margin: 0 auto;
+
+padding: 2rem;
+
+text-align: center;
+
+background-color: #d9f7ff; /* Light aqua to match the water theme */
+
+border: 5px solid #34c0eb;
+
+border-radius: 20px;
+
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+‎
+
+/* Logo styles */
+
+.logo {
+
+height: 6em;
+
+padding: 1.5em;
+
+will-change: filter;
+
+transition: filter 300ms, transform 0.3s;
+
+}
+
+.logo:hover {
+
+filter: drop-shadow(0 0 2em #34c0eb);
+
+transform: scale(1.1);
+
+}
+
+‎
+
+/* Keyframes for animations */
+
+@keyframes logo-spin {
+
+from {
+
+transform: rotate(0deg);
+}
+
+to {
+
+transform: rotate(360deg);
+}
+
+}
+
+‎
+
+/* Adding ripple-like hover effect to buttons */
+
+.confirm-button, .next-btn {
+
+background-color: #4ab5e8;
+
+color: white;
+
+border: none;
+
+border-radius: 10px;
+
+padding: 12px 25px;
+
+font-size: 1rem;
+
+cursor: pointer;
+
+transition: all 0.3s ease;
+
+}
+
+.confirm-button:hover, .next-btn:hover {
+
+background-color: #37a7d6;
+
+box-shadow: 0 0 15px rgba(0, 188, 235, 0.7);
+
+}
+
+‎
+
+/* Title styles */
+
+h1 {
+
+font-size: 2.5rem;
+
+color: #0468a3;
+
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+font-family: 'Comic Sans MS', cursive, sans-serif;
+
+}
+
+‎
+
+/* Container styling for the app sections */
+
+.container {
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+gap: 15px;
+
+padding: 20px;
+
+background: linear-gradient(135deg, #ffffff 0%, #e0f7ff 100%);
+
+border-radius: 15px;
+
+box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+
+max-width: 600px;
+
+width: 100%;
+
+}
+
+‎
+
+/* Water ripple effect on hover for avatar previews */
+
+.avatar-preview img {
+
+width: 150px;
+
+height: auto;
+
+margin-bottom: 15px;
+
+border-radius: 8px;
+
+transition: transform 0.3s ease;
+
+}
+
+.avatar-preview img:hover {
+
+transform: scale(1.1);
+
+box-shadow: 0px 0px 20px rgba(0, 188, 235, 0.7);
+
+}
+
+‎
+
+/* For tables in the help section */
+
+table {
+
+width: 100%;
+
+border-collapse: collapse;
+
+background-color: #ffffff;
+
+}
+
+th, td {
+
+border: 1px solid #46a4d8;
+
+padding: 8px;
+
+text-align: left;
+
+}
+
+th {
+
+background-color: #0468a3;
+
+color: white;
+
+text-transform: uppercase;
+
+}
+
+tr:nth-child(even) {
+
+background-color: #e0f7ff;
+
+}
