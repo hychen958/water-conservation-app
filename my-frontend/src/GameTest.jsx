@@ -1,14 +1,13 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import Phaser from 'phaser';
 import './app.css'; // Updated CSS file with matching styles
 import { useNavigate } from 'react-router-dom';
-
 const WaterUsageGame = () => {
     const gameContainerRef = useRef(null);
     const [dailyLimit, setDailyLimit] = useState(0);
     const [options, setOptions] = useState([]);
     const navigate = useNavigate();
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -27,10 +26,8 @@ const WaterUsageGame = () => {
         };
         fetchData();
     }, []);
-
     useEffect(() => {
         if (!dailyLimit) return;
-
         const config = {
             type: Phaser.AUTO,
             width: 800,
@@ -48,13 +45,10 @@ const WaterUsageGame = () => {
                 update,
             },
         };
-
         const game = new Phaser.Game(config);
-
-        let player, cursors, waterUsageText, clickCountText, dailyLimitText, scoreText, timerText;
+        let player, cursors, waterUsageText, clickCountText, dailyLimitText, scoreText;
         let waterUsage = 0;
         let clickCount = 0;
-        let timer = 30; // Timer countdown
         const waterData = {
             Tap: 12,
             'Low-flow toilet': 6,
@@ -64,7 +58,6 @@ const WaterUsageGame = () => {
             'Front-load washing machine': 65,
             'Watering lawn': 950,
         };
-
         function preload() {
             this.load.image('player', 'char1.png');
             this.load.image('room', 'room.jpg');
@@ -76,14 +69,11 @@ const WaterUsageGame = () => {
             this.load.image('washing_machine', 'washmachine.png');
             this.load.image('lawn', 'lawn.png');
         }
-
         function create() {
             this.add.image(400, 300, 'room');
-
             player = this.physics.add.sprite(400, 300, 'player');
             player.setCollideWorldBounds(true);
             cursors = this.input.keyboard.createCursorKeys();
-
             const items = [
                 { key: 'tap', x: 100, y: 180, type: 'Tap' },
                 { key: 'toilet', x: 700, y: 180, type: 'Low-flow toilet' },
@@ -93,13 +83,11 @@ const WaterUsageGame = () => {
                 { key: 'washing_machine', x: 300, y: 100, type: 'Front-load washing machine' },
                 { key: 'lawn', x: 400, y: 500, type: 'Watering lawn' },
             ];
-
             const objects = items.map(item => {
                 const object = this.physics.add.staticSprite(item.x, item.y, item.key);
                 object.type = item.type;
                 return object;
             });
-
             let lastActivatedObject = null;
             objects.forEach(object => {
                 this.physics.add.overlap(player, object, () => {
@@ -112,7 +100,6 @@ const WaterUsageGame = () => {
                         clickCount++;
                         waterUsage += waterData[object.type];
                         updateUI.call(this);
-
                         if (waterUsage > dailyLimit) {
                             endGame.call(this, 'fail');
                         } else if (clickCount === 10 && waterUsage <= dailyLimit) {
@@ -121,28 +108,12 @@ const WaterUsageGame = () => {
                     }
                 });
             });
-
             // Display UI texts
             waterUsageText = this.add.text(10, 10, 'Water Usage: 0L', { fontSize: '16px', fill: '#000' });
             dailyLimitText = this.add.text(10, 30, `Daily Limit: ${dailyLimit}L`, { fontSize: '16px', fill: '#000' });
             scoreText = this.add.text(10, 50, 'Score: 0', { fontSize: '16px', fill: '#000' });
             clickCountText = this.add.text(10, 70, 'Clicks Left: 10', { fontSize: '16px', fill: '#000' });
-            timerText = this.add.text(10, 90, `Time Left: ${timer}s`, { fontSize: '16px', fill: '#000' });
-
-            this.time.addEvent({
-                delay: 1000,
-                callback: () => {
-                    timer--;
-                    timerText.setText(`Time Left: ${timer}s`);
-                    if (timer === 0) {
-                        endGame.call(this, 'fail');
-                    }
-                },
-                callbackScope: this,
-                loop: true,
-            });
         }
-
         function update() {
             player.setVelocity(0);
             if (cursors.left.isDown) {
@@ -156,32 +127,25 @@ const WaterUsageGame = () => {
                 player.setVelocityY(200);
             }
         }
-
         function updateUI() {
             waterUsageText.setText(`Water Usage: ${waterUsage}L`);
             clickCountText.setText(`Clicks Left: ${10 - clickCount}`);
             scoreText.setText(`Score: ${dailyLimit - waterUsage}L`);
         }
-
         function endGame(result) {
             const message =
                 result === 'fail'
-                    ? timer === 0
-                        ? 'Game Over! Time is up!'
-                        : 'Game Over! You used too much!'
+                    ? 'Game Over! You used too much!'
                     : 'Congratulations! You passed!';
             this.add.text(200, 300, message, { fontSize: '32px', fill: '#000' });
             this.scene.pause();
         }
-
         return () => {
             game.destroy(true);
         };
     }, [dailyLimit]);
-
     return (
         <div className="water-game-container">
-            {/* Log Out Button in the Top Right Corner */}
             <div className="logout-button-container">
                 <button
                     className="logout-button"
@@ -190,10 +154,11 @@ const WaterUsageGame = () => {
                     Log Out
                 </button>
             </div>
-
             <div className="selection-box">
                 <label className="title">Select Daily Consumption Limit:</label>
-                <h3>Water consumption was bad in the old days - easy game level. For challenge, choose most current dates to see how you compare with your neighbors! </h3>
+                <h3>
+                    Water consumption was bad in the old days - easy game level. For challenge, choose the most current dates to see how you compare with your neighbors!
+                </h3>
                 <select
                     className="dropdown"
                     onChange={e => setDailyLimit(Number(e.target.value))}
@@ -207,8 +172,6 @@ const WaterUsageGame = () => {
                 </select>
             </div>
             <div className="game-area" ref={gameContainerRef}></div>
-
-            {/* Main Menu Button at the Bottom */}
             <div className="main-menu-button-container">
                 <button
                     className="main-menu-button"
@@ -220,6 +183,4 @@ const WaterUsageGame = () => {
         </div>
     );
 };
-
 export default WaterUsageGame;
-

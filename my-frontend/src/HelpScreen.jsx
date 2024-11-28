@@ -1,10 +1,9 @@
+
 import React from 'react';
 import './App.css';
 import { useNavigate } from 'react-router-dom';
-
 function HelpScreen() {
   const navigate = useNavigate();
-
   return (
     <div className="help-screen">
       <h1 className="game-title">Welcome to the Water Conservation Game!</h1>
@@ -13,7 +12,6 @@ function HelpScreen() {
         Each water-related activity consumes a specific amount of water. Strategize and choose activities wisely 
         to save water and avoid exceeding the limit!
       </p>
-
       <h2 className="section-title">Key Game Rules:</h2>
       <ul className="game-rules">
         <li>You start with a daily water limit, based on average consumption data.</li>
@@ -23,18 +21,13 @@ function HelpScreen() {
         <li>If your total water usage exceeds the daily limit, you lose the game.</li>
         <li>Complete all interactions without exceeding the limit to win!</li>
       </ul>
-
       <h2 className="section-title">Navigation Controls:</h2>
       <ul className="navigation-controls">
         <li>
-          <strong>For PC:</strong> Use the <strong>arrow keys</strong> on your keyboard to move your character.
+           Use the <strong>arrow keys</strong> on your keyboard to move your character.
         </li>
-        <li>
-          <strong>For Mobile:</strong> Use the <strong>on-screen joystick</strong> to move your character.
-        </li>
-        <li>Interact with objects by moving close to them.</li>
+        
       </ul>
-
       <table className="water-usage-table">
         <thead>
           <tr>
@@ -73,7 +66,6 @@ function HelpScreen() {
           </tr>
         </tbody>
       </table>
-
       {/* Main Menu Button */}
       <div className="main-menu-button-container">
         <button
@@ -86,7 +78,4 @@ function HelpScreen() {
     </div>
   );
 }
-
 export default HelpScreen;
-
-
