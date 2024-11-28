@@ -51,12 +51,7 @@ const Login = ({ setIsAuthenticated }) => {
             Register here
           </button>
         </p>
-        <p>
-          Curious?{' '}
-          <button className="link-btn" onClick={() => navigate('/gametest')}>
-            Try the Game
-          </button>
-        </p>
+        
       </div>
     </div>
   );
