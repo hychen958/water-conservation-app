@@ -1,4 +1,5 @@
 💧 Water Conservation App
+----------------------------------------------------------------------------------------------------------------------------------
 This repository contains the source code for a Water Conservation App, designed to promote efficient water usage and awareness. 🌱
 ----------------------------------------------------------------------------------------------------------------------------------
 🌟 Features
